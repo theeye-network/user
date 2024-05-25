@@ -1,0 +1,22 @@
+mutation {
+  police1: police_insert(data: {
+    policeId: "p001",
+    pStation: "rspuram"
+  }),
+  police2: police_insert(data: {
+    policeId: "p002",
+    pStation: "gandhipuram"
+  }),
+  police3: police_insert(data: {
+    policeId: "p003",
+    pStation: "sarvanampatti"
+  }),
+  police4: police_insert(data: {
+    policeId: "p004",
+    pStation: "avinashi road"
+  }),
+  police5: police_insert(data: {
+    policeId: "p005",
+    pStation: "trichy road"
+  })
+}

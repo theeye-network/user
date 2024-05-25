@@ -1,0 +1,160 @@
+scalar Accident_Key
+scalar Ambulance_Key
+scalar Doctor_Key
+scalar Driver_Key
+scalar Hospital_Key
+input Accident_Data {
+  accidentid: String
+  accidentid_expr: String_Expr
+  ambulanceid: String
+  ambulanceid_expr: String_Expr
+  hospitalid: String
+  hospitalid_expr: String_Expr
+  location: String
+  location_expr: String_Expr
+  medid: String
+  medid_expr: String_Expr
+  policeid: String
+  policeid_expr: String_Expr
+  timestamp: String
+  timestamp_expr: String_Expr
+  userid: String
+  userid_expr: String_Expr
+}
+input Accident_Filter {
+  _and: [Accident_Filter!]
+  _not: Accident_Filter
+  _or: [Accident_Filter!]
+  accidentid: String_Filter
+  ambulanceid: String_Filter
+  hospitalid: String_Filter
+  location: String_Filter
+  medid: String_Filter
+  policeid: String_Filter
+  timestamp: String_Filter
+  userid: String_Filter
+}
+input Accident_ListFilter {
+  count: Int_Filter
+  exist: Accident_Filter
+}
+input Accident_Order {
+  accidentid: OrderDirection
+  ambulanceid: OrderDirection
+  hospitalid: OrderDirection
+  location: OrderDirection
+  medid: OrderDirection
+  policeid: OrderDirection
+  timestamp: OrderDirection
+  userid: OrderDirection
+}
+input Ambulance_Data {
+  ambulanceid: String
+  ambulanceid_expr: String_Expr
+  driverDriverid: String
+  driverDriverid_expr: String_Expr
+  driver: Driver_Key
+  amblocation: String
+  amblocation_expr: String_Expr
+}
+input Ambulance_Filter {
+  _and: [Ambulance_Filter!]
+  _not: Ambulance_Filter
+  _or: [Ambulance_Filter!]
+  ambulanceid: String_Filter
+  driverDriverid: String_Filter
+  driver: Driver_Filter
+  amblocation: String_Filter
+}
+input Ambulance_ListFilter {
+  count: Int_Filter
+  exist: Ambulance_Filter
+}
+input Ambulance_Order {
+  ambulanceid: OrderDirection
+  driverDriverid: OrderDirection
+  driver: Driver_Order
+  amblocation: OrderDirection
+}
+input Doctor_Data {
+  doctorid: String
+  doctorid_expr: String_Expr
+  doctorcontact: Int
+  doctorname: String
+  doctorname_expr: String_Expr
+}
+input Doctor_Filter {
+  _and: [Doctor_Filter!]
+  _not: Doctor_Filter
+  _or: [Doctor_Filter!]
+  doctorid: String_Filter
+  doctorcontact: Int_Filter
+  doctorname: String_Filter
+  hospitals_on_doctor: Hospital_ListFilter
+}
+input Doctor_ListFilter {
+  count: Int_Filter
+  exist: Doctor_Filter
+}
+input Doctor_Order {
+  doctorid: OrderDirection
+  doctorcontact: OrderDirection
+  doctorname: OrderDirection
+}
+input Driver_Data {
+  driverid: String
+  driverid_expr: String_Expr
+  drivercontact: Int
+  drivername: String
+  drivername_expr: String_Expr
+}
+input Driver_Filter {
+  _and: [Driver_Filter!]
+  _not: Driver_Filter
+  _or: [Driver_Filter!]
+  driverid: String_Filter
+  drivercontact: Int_Filter
+  drivername: String_Filter
+  ambulances_on_driver: Ambulance_ListFilter
+}
+input Driver_ListFilter {
+  count: Int_Filter
+  exist: Driver_Filter
+}
+input Driver_Order {
+  driverid: OrderDirection
+  drivercontact: OrderDirection
+  drivername: OrderDirection
+}
+input Hospital_Data {
+  hospitalid: String
+  hospitalid_expr: String_Expr
+  doctorDoctorid: String
+  doctorDoctorid_expr: String_Expr
+  doctor: Doctor_Key
+  location: String
+  location_expr: String_Expr
+  name: String
+  name_expr: String_Expr
+}
+input Hospital_Filter {
+  _and: [Hospital_Filter!]
+  _not: Hospital_Filter
+  _or: [Hospital_Filter!]
+  hospitalid: String_Filter
+  doctorDoctorid: String_Filter
+  doctor: Doctor_Filter
+  location: String_Filter
+  name: String_Filter
+}
+input Hospital_ListFilter {
+  count: Int_Filter
+  exist: Hospital_Filter
+}
+input Hospital_Order {
+  hospitalid: OrderDirection
+  doctorDoctorid: OrderDirection
+  doctor: Doctor_Order
+  location: OrderDirection
+  name: OrderDirection
+}

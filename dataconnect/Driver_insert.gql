@@ -1,0 +1,37 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  driver_insert(data: {
+    driverid: "drv001"
+    drivername: "John Doe"
+    drivercontact: 1234567890
+  })
+}
+mutation {
+  driver_insert(data: {
+    driverid: "drv002"
+    drivername: "Jane Doe"
+    drivercontact: 9876543210
+  })
+}
+mutation {
+  driver_insert(data: {
+    driverid: "drv003"
+    drivername: "Jim Brown"
+    drivercontact: 1112223333
+  })
+}
+mutation {
+  driver_insert(data: {
+    driverid: "drv004"
+    drivername: "Jake White"
+    drivercontact: 4445556666
+  })
+}
+mutation {
+  driver_insert(data: {
+    driverid: "drv005"
+    drivername: "Jill Black"
+    drivercontact: 7778889999
+  })
+}

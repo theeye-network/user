@@ -1,0 +1,93 @@
+type Accident @table(key: "accidentid") {
+  accidentid: String!
+  ambulance: Ambulance @relation(name: "AccidentAmbulance")
+  hospital: Hospital @relation(name: "AccidentHospital")
+  medicalRecord: MedicalRecord @relation(name: "AccidentMedicalRecord")
+  police: Police @relation(name: "AccidentPolice")
+  user: User @relation(name: "AccidentUser")
+  timestamp: String
+}
+
+type Ambulance @table(key: "ambulanceid") {
+  ambulanceid: String!
+  amblocation: String!
+  driver: Driver @relation(name: "AmbulanceDriver")
+}
+
+type Driver @table(key: "driverid") {
+  driverid: String!
+  drivername: String!
+  drivercontact: Int!
+}
+
+type Hospital @table(key: "hospitalid") {
+  hospitalid: String!
+  location: String!
+  name: String!
+  doctor: Doctor @relation(name: "HospitalDoctor")
+  accidents: [Accident] @relation(name: "AccidentHospital")
+}
+
+type Doctor @table(key: "doctorid") {
+  doctorid: String!
+  doctorname: String!
+  doctorcontact: Int!
+  hospital: Hospital @relation(name: "DoctorHospital")
+}
+
+type MedicalRecord @table(key: "medid") {
+  medid: String!
+  Health: Health!@relation(name: "MedicalRecordHealth", direction: "INCOMING")
+  hospital: Hospital @relation(name: "MedicalRecordHospital")
+  accidents: [Accident] @relation(name: "AccidentMedicalRecord")
+}
+
+type Health {
+  diagnosis: String
+  prescription: String
+  treatment: Treatment
+}
+
+type Treatment {
+  procedure: String
+  yearOfTreatment: Int
+}
+
+type Police @table(key: "policeid") {
+  policeid: String!
+  pstation: String!
+  accidents: [Accident] @relation(name: "AccidentPolice")
+}
+
+type User @table(key: "userid") {
+  userid: String!
+  name: String!
+  address: String!
+  age: Int
+  contact: Int
+  emergencyContact: EmergencyContact @relation(name: "UserEmergencyContact")
+  vehicle: Vehicle @relation(name: "UserVehicle")
+  medicalRecord: MedicalRecord @relation(name: "UserMedicalRecord")
+  accident: Accident @relation(name: "AccidentUser")
+}
+
+type EmergencyContact {
+  emecontact: Int!
+  emename: String!
+  emergencyid: String!
+  user: User @relation(name: "UserEmergencyContact")
+}
+
+type Vehicle @table(key: "vehicleid") {
+  vehicleid: String!
+  registration: String!
+  contactid: String
+  insurance: Insurance @relation(name: "VehicleInsurance")
+  user: User @relation(name: "UserVehicle")
+}
+
+type Insurance @table(key: "insuranceid") {
+  insuranceid: String!
+  provider: String!
+  vehicle: Vehicle @relation(name: "VehicleInsurance")
+}

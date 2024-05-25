@@ -1,0 +1,69 @@
+mutation CreateVehicleDetails($vehicleId: ID!, $registration: String!) @auth(level: NO_ACCESS) {
+  vehicleDetails_insert(data: {
+    vehicleId: $vehicleId,
+    registration: $registration
+  })
+}
+
+mutation CreateAccident($accidentId: ID!, $location: String!, $timestamp: DateTime!, $vehicleId: ID!) @auth(level: NO_ACCESS) {
+  accident_insert(data: {
+    accidentId: $accidentId,
+    location: $location,
+    timestamp: $timestamp,
+    vehicleId: $vehicleId
+  })
+}
+
+mutation CreatePolice($policeId: ID!, $station: String!, $accidentId: ID!) @auth(level: NO_ACCESS) {
+  police_insert(data: {
+    policeId: $policeId,
+    station: $station,
+    accidentId: $accidentId
+  })
+}
+
+mutation CreateInsuranceInfo($insuranceId: ID!, $provider: String!, $accidentId: ID!) @auth(level: NO_ACCESS) {
+  insurance_insert(data: {
+    insuranceId: $insuranceId,
+    provider: $provider,
+    accidentId: $accidentId
+  })
+}
+
+mutation CreateAmbulanceRecord($ambulanceId: ID!, $location: String!, $name: String!, $phoneNumber: String!, $relationship: String!, $accidentId: ID!) @auth(level: NO_ACCESS) {
+  ambulanceRecord_insert(data: {
+    ambulanceId: $ambulanceId,
+    location: $location,
+    name: $name,
+    phoneNumber: $phoneNumber,
+    relationship: $relationship,
+    accidentId: $accidentId
+  })
+}
+
+mutation CreateMedicalRecord($medicalRecordId: ID!, $name: String!, $medicalRecords: String!, $hospitalId: ID!) @auth(level: NO_ACCESS) {
+  medicalRecord_insert(data: {
+    medicalRecordId: $medicalRecordId,
+    name: $name,
+    medicalRecords: $medicalRecords,
+    hospitalId: $hospitalId
+  })
+}
+
+mutation CreateHospital($hospitalId: ID!, $name: String!, $location: String!) @auth(level: NO_ACCESS) {
+  hospital_insert(data: {
+    hospitalId: $hospitalId,
+    name: $name,
+    location: $location
+  })
+}
+
+mutation CreateContact($contactId: ID!, $name: String!, $phoneNumber: String!, $relationship: String!, $hospitalId: ID!) @auth(level: NO_ACCESS) {
+  contact_insert(data: {
+    contactId: $contactId,
+    name: $name,
+    phoneNumber: $phoneNumber,
+    relationship: $relationship,
+    hospitalId: $hospitalId
+  })
+}

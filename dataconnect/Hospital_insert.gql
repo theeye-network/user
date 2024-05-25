@@ -1,0 +1,42 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  hospital_insert(data: {
+    hospitalid: "hos001",
+    location: "rs puram",
+    name: "ABC hospitals",
+    doctorDoctorid: "rhd001"
+  })
+}
+mutation {
+  hospital_insert(data: {
+    hospitalid: "hos002",
+    location: "saravanampatti",
+    name: "Medcare hospitals",
+    doctorDoctorid: "royhd007"
+  })
+}
+mutation {
+  hospital_insert(data: {
+    hospitalid: "hos003",
+location: "avinashi road",
+    name: "Hindustan hospitals",
+    doctorDoctorid: "clhd017"
+  })
+}
+mutation {
+  hospital_insert(data: {
+    hospitalid: "hos004",
+    location: "Peelamedu",
+    name: "Life hospitals",
+    doctorDoctorid: "abcd034"
+  })
+}
+mutation {
+  hospital_insert(data: {
+    hospitalid: "hos005",
+    location: "sarvanampatti",
+    name: "Hope hospitals",
+    doctorDoctorid: "royhd007"
+  })
+}

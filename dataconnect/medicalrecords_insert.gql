@@ -1,0 +1,129 @@
+mutation {
+  medicalrecords_insert(data: {
+    user1: {
+      health: {
+        diagnosis: "Open Heart surgery",
+        prescription: "Atenolol (Tenormin) Betaxolol (Kerlone)",
+        treatment: {
+          procedure: "stent standard",
+          year_of_treatment: 2016
+        }
+      },
+      hospital: {
+        doctor: {
+          doctorcontact: 9896614235,
+          doctorid: "rhd001",
+          doctorname: "Vasanth Kumar"
+        },
+        hospcontact: "0433-7078678",
+        hospitallocation: {
+          area: "Nungambakkam",
+          city: "Chennai"
+        },
+        hospitalname: "Renuka Hospitals",
+        medid: "md001",
+        userid: "acciresq001"
+      }
+    },
+    user2: {
+      health: {
+        diagnosis: "Kidney Transplant",
+        prescription: "Prednisone",
+        treatment: {
+          procedure: "Surgery and transplant",
+          year_of_treatment: 2018
+        }
+      },
+      hospital: {
+        doctor: {
+          doctorcontact: 9121133334,
+          doctorid: "royhd007",
+          doctorname: "James Arthur"
+        },
+        hospitalcontact: "0455-7788661",
+        hospitallocation: {
+          area: "Racecourse",
+          city: "Bangalore"
+        },
+        hospitalname: "Royal hospital",
+        medid: "md002",
+        userid: "acciresq002"
+      }
+    },
+    user3: {
+      health: {
+        diagnosis: "corona",
+        prescription: "",
+        treatment: {
+          procedure: "standard",
+          year_of_treatment: 2021
+        }
+      },
+      hospital: {
+        doctor: {
+          doctorcontact: 8999014423,
+          doctorid: "clhd017",
+          doctorname: "Vinodini Priya"
+        },
+        hospitalcontact: "0422-3039923",
+        hospitallocation: {
+          area: "rs puram",
+          city: "coimbatore"
+        },
+        hospitalname: "Carelife Hospitals",
+        medid: "md003",
+        userid: "acciresq003"
+      }
+    },
+    user4: {
+      health: {
+        diagnosis: null,
+        prescription: null,
+        treatment: {
+          procedure: null,
+          year_of_treatment: null
+        }
+      },
+      hospital: {
+        doctor: {
+          doctorcontact: null,
+          doctorid: null,
+          doctorname: null
+        },
+        hospitalcontact: null,
+        hospitallocation: {
+          area: null,
+          city: null
+        },
+        hospitalname: null,
+        medid: null,
+        userid: null
+      }
+    },
+    user5: {
+      health: {
+        diagnosis: "asthma",
+        prescription: "combination inhalers",
+        treatment: {
+          procedure: "Tracheostomy ",
+          year_of_treatment: 2017
+        }
+      },
+      hospital: {
+        doctor: {
+          doctorcontact: 7000061453,
+          doctorid: "abcd034",
+          doctorname: "Ben Fuller"
+        },
+        hospitalcontact: "0422-9936781",
+        hospitallocation: {
+          area: "gandhipuram",
+          city: "Coimbatore"
+        },
+        hospitalname: "ABC hospitals",
+        medid: null,
+        userid: null
+      }
+    }
+  })
+}

@@ -1,0 +1,64 @@
+mutation {
+  userdetails: [
+    user_insert(data: {
+      uid: "acciresq001",
+      name: "Tom Williams",
+      age: 30,
+      contact: 6777800989,
+      emergencyContact: {
+        emeContact: 7888660098,
+        emeName: "Sarah Williams",
+        emergencyId: "em001"
+      },
+      vehicleId: 1
+    }),
+    user_insert(data: {
+      uid: "acciresq002",
+      name: "Rekha Sameer",
+      age: 45,
+      contact: 9000087678,
+      emergencyContact: {
+        emeContact: 9007876543,
+        emeName: "Sameer Kumar",
+        emergencyId: "em002"
+      },
+      vehicleId: 2
+    }),
+    user_insert(data: {
+      uid: "acciresq003",
+      name: "Ramya Priya",
+      age: 22,
+      contact: 9995553331,
+      emergencyContact: {
+        emeContact: 8787000912,
+        emeName: "Lavanya Priya",
+        emergencyId: "em003"
+      },
+      vehicleId: 3
+    }),
+    user_insert(data: {
+      uid: "acciresq004",
+      name: "John Chalamet",
+      age: 56,
+      contact: 8997068971,
+      emergencyContact: {
+        emeContact: 8111234564,
+        emeName: "Tim Chalamet",
+        emergencyId: "em004"
+      },
+      vehicleId: 4
+    }),
+    user_insert(data: {
+      uid: "acciresq005",
+      name: "Rajesh Kanna",
+      age: 48,
+      contact: 8899770000,
+      emergencyContact: {
+        emeContact: 9912342331,
+        emeName: "Sajal Kanna",
+        emergencyId: "em005"
+      },
+      vehicleId: 5
+    })
+  ]
+}

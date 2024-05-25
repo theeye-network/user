@@ -1,0 +1,62 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  accident_insert(data: {
+    location: ""
+    medid: ""
+    policeid: ""
+    timestamp: ""
+    userid: ""
+    accidentid: "acrq001"
+    ambulanceid: null
+    hospitalid: ""
+  })
+}
+mutation {
+  accident_insert(data: {
+    location: "ramanathapuram"
+    medid: "md002"
+    policeid: "p002"
+    timestamp: ""
+    userid: "acciresq002"
+    accidentid: "acrq002"
+    ambulanceid: "amb002"
+    hospitalid: "hos001"
+  })
+}
+mutation {
+  accident_insert(data: {
+    location: "tirchy road"
+    medid: "md003"
+    policeid: "p003"
+    timestamp: ""
+    userid: "accresq003"
+    accidentid: "acrq003"
+    ambulanceid: "amb003"
+    hospitalid: "hos003"
+  })
+}
+mutation {
+  accident_insert(data: {
+    location: "gandhipuram"
+    medid: ""
+    policeid: "p001"
+    timestamp: ""
+    userid: "acciresq004"
+    accidentid: "acrq004"
+    ambulanceid: ""
+    hospitalid: "hos004"
+  })
+}
+mutation {
+  accident_insert(data: {
+    location: "avinashi road"
+    medid: "md005"
+    policeid: "p005"
+    timestamp: ""
+    userid: "acciresq005"
+    accidentid: "acrq005"
+    ambulanceid: "amb005"
+    hospitalid: "hos005"
+  })
+}

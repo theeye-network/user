@@ -1,0 +1,122 @@
+extend type Mutation {
+  """
+  Insert a single Accident into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  accident_insert(data: Accident_Data!): Accident_Key!
+  """
+  Insert a single Ambulance into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  ambulance_insert(data: Ambulance_Data!): Ambulance_Key!
+  """
+  Insert a single Doctor into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  doctor_insert(data: Doctor_Data!): Doctor_Key!
+  """
+  Insert a single Driver into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  driver_insert(data: Driver_Data!): Driver_Key!
+  """
+  Insert a single Hospital into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  hospital_insert(data: Hospital_Data!): Hospital_Key!
+  """
+  Insert or update a single Accident into the table, based on the primary key. Returns the key of the newly inserted Accident.
+  """
+  accident_upsert(data: Accident_Data!): Accident_Key!
+  """
+  Insert or update a single Ambulance into the table, based on the primary key. Returns the key of the newly inserted Ambulance.
+  """
+  ambulance_upsert(data: Ambulance_Data!): Ambulance_Key!
+  """
+  Insert or update a single Doctor into the table, based on the primary key. Returns the key of the newly inserted Doctor.
+  """
+  doctor_upsert(data: Doctor_Data!): Doctor_Key!
+  """
+  Insert or update a single Driver into the table, based on the primary key. Returns the key of the newly inserted Driver.
+  """
+  driver_upsert(data: Driver_Data!): Driver_Key!
+  """
+  Insert or update a single Hospital into the table, based on the primary key. Returns the key of the newly inserted Hospital.
+  """
+  hospital_upsert(data: Hospital_Data!): Hospital_Key!
+  """
+  Update a single Accident based on `id` or `key`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  accident_update(key: Accident_Key, data: Accident_Data!): Accident_Key
+  """
+  Update a single Ambulance based on `id` or `key`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  ambulance_update(key: Ambulance_Key, data: Ambulance_Data!): Ambulance_Key
+  """
+  Update a single Doctor based on `id` or `key`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  doctor_update(key: Doctor_Key, data: Doctor_Data!): Doctor_Key
+  """
+  Update a single Driver based on `id` or `key`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  driver_update(key: Driver_Key, data: Driver_Data!): Driver_Key
+  """
+  Update a single Hospital based on `id` or `key`, setting columns specified in `data`. Returns `null` if not found.
+  """
+  hospital_update(key: Hospital_Key, data: Hospital_Data!): Hospital_Key
+  """
+  Update Accident entries matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  accident_updateMany(where: Accident_Filter, all: Boolean = false, data: Accident_Data!): Int!
+  """
+  Update Ambulance entries matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  ambulance_updateMany(where: Ambulance_Filter, all: Boolean = false, data: Ambulance_Data!): Int!
+  """
+  Update Doctor entries matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  doctor_updateMany(where: Doctor_Filter, all: Boolean = false, data: Doctor_Data!): Int!
+  """
+  Update Driver entries matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  driver_updateMany(where: Driver_Filter, all: Boolean = false, data: Driver_Data!): Int!
+  """
+  Update Hospital entries matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  hospital_updateMany(where: Hospital_Filter, all: Boolean = false, data: Hospital_Data!): Int!
+  """
+  Delete a single Accident based on `id` or `key` and return its key (or `null` if not found).
+  """
+  accident_delete(key: Accident_Key): Accident_Key
+  """
+  Delete a single Ambulance based on `id` or `key` and return its key (or `null` if not found).
+  """
+  ambulance_delete(key: Ambulance_Key): Ambulance_Key
+  """
+  Delete a single Doctor based on `id` or `key` and return its key (or `null` if not found).
+  """
+  doctor_delete(key: Doctor_Key): Doctor_Key
+  """
+  Delete a single Driver based on `id` or `key` and return its key (or `null` if not found).
+  """
+  driver_delete(key: Driver_Key): Driver_Key
+  """
+  Delete a single Hospital based on `id` or `key` and return its key (or `null` if not found).
+  """
+  hospital_delete(key: Hospital_Key): Hospital_Key
+  """
+  Delete Accident entries matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  accident_deleteMany(where: Accident_Filter, all: Boolean = false): Int!
+  """
+  Delete Ambulance entries matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  ambulance_deleteMany(where: Ambulance_Filter, all: Boolean = false): Int!
+  """
+  Delete Doctor entries matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  doctor_deleteMany(where: Doctor_Filter, all: Boolean = false): Int!
+  """
+  Delete Driver entries matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  driver_deleteMany(where: Driver_Filter, all: Boolean = false): Int!
+  """
+  Delete Hospital entries matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  hospital_deleteMany(where: Hospital_Filter, all: Boolean = false): Int!
+}

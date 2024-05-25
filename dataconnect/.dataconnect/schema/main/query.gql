@@ -1,0 +1,42 @@
+extend type Query {
+  """
+  Look up a single Accident based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  accident(key: Accident_Key): Accident
+  """
+  Look up a single Ambulance based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  ambulance(key: Ambulance_Key): Ambulance
+  """
+  Look up a single Doctor based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  doctor(key: Doctor_Key): Doctor
+  """
+  Look up a single Driver based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  driver(key: Driver_Key): Driver
+  """
+  Look up a single Hospital based on `id` or `key` and return selected fields (or `null` if not found).
+  """
+  hospital(key: Hospital_Key): Hospital
+  """
+  List Accident entries in the table, optionally filtered by `where` conditions.
+  """
+  accidents(where: Accident_Filter, orderBy: [Accident_Order!], limit: Int = 100): [Accident!]!
+  """
+  List Ambulance entries in the table, optionally filtered by `where` conditions.
+  """
+  ambulances(where: Ambulance_Filter, orderBy: [Ambulance_Order!], limit: Int = 100): [Ambulance!]!
+  """
+  List Doctor entries in the table, optionally filtered by `where` conditions.
+  """
+  doctors(where: Doctor_Filter, orderBy: [Doctor_Order!], limit: Int = 100): [Doctor!]!
+  """
+  List Driver entries in the table, optionally filtered by `where` conditions.
+  """
+  drivers(where: Driver_Filter, orderBy: [Driver_Order!], limit: Int = 100): [Driver!]!
+  """
+  List Hospital entries in the table, optionally filtered by `where` conditions.
+  """
+  hospitals(where: Hospital_Filter, orderBy: [Hospital_Order!], limit: Int = 100): [Hospital!]!
+}

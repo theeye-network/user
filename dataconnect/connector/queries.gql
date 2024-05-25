@@ -1,0 +1,652 @@
+const axios = require('axios');
+
+const baseURL = 'https://acciresque-default-rtdb.asia-southeast1.firebasedatabase.app/';
+
+async function queryListAccidents() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListAccidents'
+    }
+  });
+
+  const accidents = response.data.accidents || [];
+  return accidents.map(accident => ({
+    accidentId: accident.accidentId,
+    location: accident.location,
+    timestamp: accident.timestamp,
+    police: {
+      policeId: accident.police.policeId,
+      station: accident.police.station
+    },
+    insurance: {
+      insuranceId: accident.insurance.insuranceId,
+      provider: accident.insurance.provider
+    },
+    ambulance: {
+      ambulanceId: accident.ambulance.ambulanceId,
+      location: accident.ambulance.location
+    },
+    medicalRecord: {
+      hospitalId: accident.medicalRecord.hospitalId,
+      name: accident.medicalRecord.name,
+      medicalRecords: accident.medicalRecord.medicalRecords
+    },
+    hospital: {
+      hospitalId: accident.hospital.hospitalId,
+      name: accident.hospital.name,
+      location: accident.hospital.location
+    },
+    vehicle: {
+      vehicleId: accident.vehicle.vehicleId,
+      registration: accident.vehicle.registration
+    },
+    contact: {
+      contactId: accident.contact.contactId,
+      name: accident.contact.name,
+      phoneNumber: accident.contact.phoneNumber,
+      relationship: accident.contact.relationship
+    }
+  }));
+}
+
+async function queryGetAccidentById(accidentId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetAccidentById',
+      accidentId: JSON.stringify(accidentId)
+    }
+  });
+
+  const accident = response.data.accident || {};
+  return {
+    accidentId: accident.accidentId,
+    location: accident.location,
+    timestamp: accident.timestamp,
+    police: {
+      policeId: accident.police.policeId,
+      station: accident.police.station
+    },
+    insurance: {
+      insuranceId: accident.insurance.insuranceId,
+      provider: accident.insurance.provider
+    },
+    ambulance: {
+      ambulanceId: accident.ambulance.ambulanceId,
+      location: accident.ambulance.location
+    },
+    medicalRecord: {
+      hospitalId: accident.medicalRecord.hospitalId,
+      name: accident.medicalRecord.name,
+      medicalRecords: accident.medicalRecord.medicalRecords
+    },
+    hospital: {
+      hospitalId: accident.hospital.hospitalId,
+      name: accident.hospital.name,
+      location: accident.hospital.location
+    },
+    vehicle: {
+      vehicleId: accident.vehicle.vehicleId,
+      registration: accident.vehicle.registration
+    },
+    contact: {
+      contactId: accident.contact.contactId,
+      name: accident.contact.name,
+      phoneNumber: accident.contact.phoneNumber,
+      relationship: accident.contact.relationship
+    }
+  };
+}
+
+async function queryCreateAccident(accident) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreateAccident',
+    accident: {
+      accidentId: accident.accidentId,
+      location: accident.location,
+      timestamp: accident.timestamp,
+      police: {
+        policeId: accident.police.policeId,
+        station: accident.police.station
+      },
+      insurance: {
+        insuranceId: accident.insurance.insuranceId,
+        provider: accident.insurance.provider
+      },
+      ambulance: {ambulanceId: accident.ambulance.ambulanceId,
+        location: accident.ambulance.location
+      },
+      medicalRecord: {
+        hospitalId: accident.medicalRecord.hospitalId,
+        name: accident.medicalRecord.name,
+        medicalRecords: accident.medicalRecord.medicalRecords
+      },
+      hospital: {
+        hospitalId: accident.hospital.hospitalId,
+        name: accident.hospital.name,
+        location: accident.hospital.location
+      },
+      vehicle: {
+        vehicleId: accident.vehicle.vehicleId,
+        registration: accident.vehicle.registration
+      },
+      contact: {
+        contactId: accident.contact.contactId,
+        name: accident.contact.name,
+        phoneNumber: accident.contact.phoneNumber,
+        relationship: accident.contact.relationship
+      }
+    }
+  });
+
+  return response.data.accidentId;
+}
+
+async function queryUpdateAccident(accident) {
+  const response = await axios.put(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'UpdateAccident',
+    accidentId: accident.accidentId,
+    accident: {
+      location: accident.location,
+      timestamp: accident.timestamp,
+      police: {
+        policeId: accident.police.policeId,
+        station: accident.police.station
+      },
+      insurance: {
+        insuranceId: accident.insurance.insuranceId,
+        provider: accident.insurance.provider
+      },
+      ambulance: {
+        ambulanceId: accident.ambulance.ambulanceId,
+        location: accident.ambulance.location
+      },
+      medicalRecord: {
+        hospitalId: accident.medicalRecord.hospitalId,
+        name: accident.medicalRecord.name,
+        medicalRecords: accident.medicalRecord.medicalRecords
+      },
+      hospital: {
+        hospitalId: accident.hospital.hospitalId,
+        name: accident.hospital.name,
+        location: accident.hospital.location
+      },
+      vehicle: {
+        vehicleId: accident.vehicle.vehicleId,
+        registration: accident.vehicle.registration
+      },
+      contact: {
+        contactId: accident.contact.contactId,
+        name: accident.contact.name,
+        phoneNumber: accident.contact.phoneNumber,
+        relationship: accident.contact.relationship
+      }
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeleteAccident(accidentId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeleteAccident',
+      accidentId: JSON.stringify(accidentId)
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryListPolice() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListPolice'
+    }
+  });
+
+  const police = response.data.police || [];
+  return police.map(p => ({ policeId: p.policeId, station: p.station }));
+}
+
+async function queryGetPoliceById(policeId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetPoliceById',
+      policeId: JSON.stringify(policeId)
+    }
+  });
+
+  const police = response.data.police || {};
+  return { policeId: police.policeId, station: police.station };
+}
+
+async function queryCreatePolice(police) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreatePolice',
+    police: {
+      policeId: police.policeId,
+      station: police.station
+    }
+  });
+
+  return response.data.policeId;
+}
+
+async function queryUpdatePolice(police) {
+  const response = await axios.put(`${baseURL}.json`,{
+    auth: 'ADMIN',
+    query: 'UpdatePolice',
+    policeId: police.policeId,
+    police: {
+      station: police.station
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeletePolice(policeId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeletePolice',
+      policeId: JSON.stringify(policeId)
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryListInsurance() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListInsurance'
+    }
+  });
+
+  const insurance = response.data.insurance || [];
+  return insurance.map(i => ({ insuranceId: i.insuranceId, provider: i.provider }));
+}
+
+async function queryGetInsuranceById(insuranceId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetInsuranceById',
+      insuranceId: JSON.stringify(insuranceId)
+    }
+  });
+
+  const insurance = response.data.insurance || {};
+  return { insuranceId: insurance.insuranceId, provider: insurance.provider };
+}
+
+async function queryCreateInsurance(insurance) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreateInsurance',
+    insurance: {
+      insuranceId: insurance.insuranceId,
+      provider: insurance.provider
+    }
+  });
+
+  return response.data.insuranceId;
+}
+
+async function queryUpdateInsurance(insurance) {
+  const response = await axios.put(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'UpdateInsurance',
+    insuranceId: insurance.insuranceId,
+    insurance: {
+      provider: insurance.provider
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeleteInsurance(insuranceId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeleteInsurance',
+      insuranceId: JSON.stringify(insuranceId)
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryListAmbulance() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListAmbulance'
+    }
+  });
+
+  const ambulance = response.data.ambulance || [];
+  return ambulance.map(a => ({ ambulanceId: a.ambulanceId, location: a.location }));
+}
+
+async function queryGetAmbulanceById(ambulanceId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetAmbulanceById',
+      ambulanceId: JSON.stringify(ambulanceId)
+    }
+  });
+
+  const ambulance = response.data.ambulance || {};
+  return { ambulanceId: ambulance.ambulanceId, location: ambulance.location };
+}
+
+async function queryCreateAmbulance(ambulance) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreateAmbulance',
+    ambulance: {
+      ambulanceId: ambulance.ambulanceId,
+      location: ambulance.location
+    }
+  });
+
+  return response.data.ambulanceId;
+}
+
+async function queryUpdateAmbulance(ambulance) {
+  const response = await axios.put(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'UpdateAmbulance',
+    ambulanceId: ambulance.ambulanceId,
+    ambulance: {
+      location: ambulance.location
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeleteAmbulance(ambulanceId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeleteAmbulance',
+      ambulanceId: JSON.stringify(ambulanceId)
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryListHospital() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListHospital'
+    }
+  });
+
+  const hospital = response.data.hospital || [];
+  return hospital.map(h => ({ hospitalId: h.hospitalId, name: h.name, location: h.location }));
+}
+
+async function queryGetHospitalById(hospitalId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetHospitalById',
+      hospitalId: JSON.stringify(hospitalId)
+    }
+  });
+
+  const hospital = response.data.hospital || {};
+  return { hospitalId: hospital.hospitalId, name: hospital.name, location: hospital.location };
+}
+
+async function queryCreateHospital(hospital) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreateHospital',
+    hospital: {
+      hospitalId: hospital.hospitalId,
+      name: hospital.name,
+      location: hospital.location
+    }
+  });
+
+  return response.data.hospitalId;
+}
+
+async function queryUpdateHospital(hospital) {
+  const response = await axios.put(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'UpdateHospital',
+    hospitalId: hospital.hospitalId,
+    hospital: {
+      name: hospital.name,
+      location: hospital.location
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeleteHospital(hospitalId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeleteHospital',
+      hospitalId: JSON.stringify(hospitalId)
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryListMedicalRecord() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListMedicalRecord'
+    }
+  });
+
+  const medicalRecord = response.data.medicalRecord || [];
+  return medicalRecord.map(m => ({ hospitalId: m.hospitalId, name: m.name, medicalRecords: m.medicalRecords }));
+}
+
+async function queryGetMedicalRecordById(hospitalId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetMedicalRecordById',
+      hospitalId: JSON.stringify(hospitalId)
+    }
+  });
+
+  const medicalRecord = response.data.medicalRecord || {};
+  return { hospitalId: medicalRecord.hospitalId, name: medicalRecord.name, medicalRecords: medicalRecord.medicalRecords };
+}
+
+async function queryCreateMedicalRecord(medicalRecord) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreateMedicalRecord',
+    medicalRecord: {
+      hospitalId: medicalRecord.hospitalId,
+      name: medicalRecord.name,
+      medicalRecords: medicalRecord.medicalRecords
+    }
+  });
+
+  return response.data.medicalRecordId;
+}
+
+async function queryUpdateMedicalRecord(medicalRecord) {
+  const response = await axios.put(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'UpdateMedicalRecord',
+    hospitalId: medicalRecord.hospitalId,
+    medicalRecord: {
+      name: medicalRecord.name,
+      medicalRecords: medicalRecord.medicalRecords
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeleteMedicalRecord(hospitalId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeleteMedicalRecord',
+      hospitalId: JSON.stringify(hospitalId)
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryListContact() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListContact'
+    }
+  });
+
+  const contact = response.data.contact || [];
+  return contact.map(c => ({ contactId: c.contactId, name: c.name, phoneNumber: c.phoneNumber, relationship: c.relationship }));
+}
+
+async function queryGetContactById(contactId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetContactById',
+      contactId: JSON.stringify(contactId)
+    }
+  });
+
+  const contact = response.data.contact || {};
+  return { contactId: contact.contactId, name: contact.name, phoneNumber: contact.phoneNumber, relationship: contact.relationship };
+}
+
+async function queryCreateContact(contact) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreateContact',
+    contact: {
+      contactId: contact.contactId,
+      name: contact.name,
+      phoneNumber: contact.phoneNumber,
+      relationship: contact.relationship
+    }
+  });
+
+  return response.data.contactId;
+}
+
+async function queryUpdateContact(contact) {
+  const response = await axios.put(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'UpdateContact',
+    contactId: contact.contactId,
+    contact: {
+      name: contact.name,
+      phoneNumber: contact.phoneNumber,
+      relationship: contact.relationship
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeleteContact(contactId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeleteContact',
+      contactId: JSON.stringify(contactId)
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryListVehicle() {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'ListVehicle'
+    }
+  });
+
+  const vehicle = response.data.vehicle || [];
+  return vehicle.map(v => ({ vehicleId: v.vehicleId, registration: v.registration }));
+}
+
+async function queryGetVehicleById(vehicleId) {
+  const response = await axios.get(`${baseURL}.json`, {
+    params: {
+      auth: 'PUBLIC',
+      query: 'GetVehicleById',
+      vehicleId: JSON.stringify(vehicleId)
+    }
+  });
+
+  const vehicle = response.data.vehicle || {};
+  return { vehicleId: vehicle.vehicleId, registration: vehicle.registration };
+}
+
+async function queryCreateVehicle(vehicle) {
+  const response = await axios.post(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'CreateVehicle',
+    vehicle: {
+      vehicleId: vehicle.vehicleId,
+      registration: vehicle.registration
+    }
+  });
+
+  return response.data.vehicleId;
+}
+
+async function queryUpdateVehicle(vehicle) {
+  const response = await axios.put(`${baseURL}.json`, {
+    auth: 'ADMIN',
+    query: 'UpdateVehicle',
+    vehicleId: vehicle.vehicleId,
+    vehicle: {
+      registration: vehicle.registration
+    }
+  });
+
+  return response.data.success;
+}
+
+async function queryDeleteVehicle(vehicleId) {
+  const response = await axios.delete(`${baseURL}.json`, {
+    params: {
+      auth: 'ADMIN',
+      query: 'DeleteVehicle',
+      vehicleId: JSON.stringify(vehicleId)
+    }
+  });
+
+  return response.data.success;
+}

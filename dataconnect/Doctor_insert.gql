@@ -1,0 +1,37 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  doctor_insert(data: {
+    doctorid: "dr001",
+    doctorname: "Dr. John Doe",
+    doctorcontact: 1234567890
+  })
+}
+mutation {
+  doctor_insert(data: {
+    doctorid: "dr002",
+    doctorname: "Dr. Jane Doe",
+    doctorcontact: 9876543210
+  })
+}
+mutation {
+  doctor_insert(data: {
+    doctorid: "dr003",
+    doctorname: "Dr. James Doe",
+    doctorcontact: 4567891230
+  })
+}
+mutation {
+  doctor_insert(data: {
+    doctorid: "dr004",
+    doctorname: "Dr. Jill Doe",
+    doctorcontact: 7891234560
+  })
+}
+mutation {
+  doctor_insert(data: {
+    doctorid: "dr005",
+    doctorname: "Dr. Jake Doe",
+    doctorcontact: 3456098712
+  })
+}

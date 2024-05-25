@@ -1,0 +1,37 @@
+# This is a file for you to write an un-named mutation. 
+# Only one un-named mutation is allowed per file.
+mutation {
+  ambulance_insert(data: {
+    ambulanceid: "amb001"
+    amblocation: "chennai"
+    driverDriverid: "drv001"
+  })
+}
+mutation {
+  ambulance_insert(data: {
+    ambulanceid: "amb002"
+    amblocation: "ramanathapuram"
+    driverDriverid: "drv002"
+  })
+}
+mutation {
+  ambulance_insert(data: {
+    ambulanceid: "amb003"
+    amblocation: "tirchy road"
+    driverDriverid: "drv003"
+  })
+}
+mutation {
+  ambulance_insert(data: {
+    ambulanceid: "amb004"
+    amblocation: "gandhipuram"
+    driverDriverid: "drv004"
+  })
+}
+mutation {
+  ambulance_insert(data: {
+    ambulanceid: "amb005"
+    amblocation: "avinashi road"
+    driverDriverid: "drv005"
+  })
+}

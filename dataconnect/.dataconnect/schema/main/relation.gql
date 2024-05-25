@@ -1,0 +1,12 @@
+extend type Doctor {
+  """
+  ✨ List Hospital entries in a one-to-many relationship with this object (i.e. where `Hospital.doctor` equals this object).
+  """
+  hospitals_on_doctor(where: Hospital_Filter, orderBy: [Hospital_Order!], limit: Int = 100): [Hospital!]!
+}
+extend type Driver {
+  """
+  ✨ List Ambulance entries in a one-to-many relationship with this object (i.e. where `Ambulance.driver` equals this object).
+  """
+  ambulances_on_driver(where: Ambulance_Filter, orderBy: [Ambulance_Order!], limit: Int = 100): [Ambulance!]!
+}

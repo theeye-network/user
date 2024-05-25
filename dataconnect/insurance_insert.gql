@@ -1,0 +1,22 @@
+mutation {
+  insurance1: insert_insurance(objects: {
+    id: "ins001",
+    provider: "HDFC Life Insurance"
+  }),
+  insurance2: insert_insurance(objects: {
+    id: "ins002",
+    provider: "LIC Of India"
+  }),
+  insurance3: insert_insurance(objects: {
+    id: "ins003",
+    provider: "Bajaj Allianz Life Insurance"
+  }),
+  insurance4: insert_insurance(objects: {
+    id: "ins004",
+    provider: "Tata AIA Life Insurance"
+  }),
+  insurance5: insert_insurance(objects: {
+    id: "ins005",
+    provider: "SBI Life Insurance"
+  })
+}

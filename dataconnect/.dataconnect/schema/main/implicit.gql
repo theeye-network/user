@@ -1,0 +1,6 @@
+extend type Ambulance {
+  driverDriverid: String!
+}
+extend type Hospital {
+  doctorDoctorid: String!
+}

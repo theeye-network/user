@@ -1,0 +1,32 @@
+mutation {
+  vehicle1: vehicle_insert(data: {
+    vehicleId: 1,
+    registration: "TN 38 AC 1111",
+    insuranceId: "ins001",
+    contactId: "con001"
+  }),
+  vehicle2: vehicle_insert(data: {
+    vehicleId: 2,
+    registration: "TN 33 AT 2222",
+    insuranceId: "ins002",
+    contactId: "con002"
+  }),
+  vehicle3: vehicle_insert(data: {
+    vehicleId: 3,
+    registration: "TN 42 AN 3333",
+    insuranceId: "ins003",
+    contactId: "con003"
+  }),
+  vehicle4: vehicle_insert(data: {
+    vehicleId: 4,
+    registration: "TN 39 AM 4444",
+    insuranceId: "ins004",
+    contactId: "con004"
+  }),
+  vehicle5: vehicle_insert(data: {
+    vehicleId: 5,
+    registration: "TN 30 BC 5555",
+    insuranceId: "ins005",
+    contactId: "con005"
+  })
+}
